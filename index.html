@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Souza Cabral – Assessoria e Consultoria Jurídica</title>
+    
+    <!-- Tailwind CSS via CDN para estilização rápida e moderna -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter para o corpo e uma fonte Serif para elegância -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Configuração customizada do Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#EAB308', // Amarelo Dourado
+                            bg: '#000000',   // Fundo Preto
+                            'bg-alt': '#0A0A0A', // Fundo Alternativo (Cinza quase preto)
+                            green: '#22C55E' // Verde para resultados positivos
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos customizados e animações */
+        
+        body {
+            background-color: #000000;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Animação de Fade In/Out em Loop para o botão principal */
+        @keyframes fadePulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .animate-fade-pulse {
+            animation: fadePulse 2s ease-in-out infinite;
+        }
+
+        /* Estilo para os itens de card no grid */
+        .card-grid-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .card-grid-item:hover {
+            border-color: rgba(234, 179, 8, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Esconder barra de rolagem mas manter funcionalidade */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Seleção de texto customizada */
+        ::selection {
+            background: rgba(234, 179, 8, 0.3);
+            color: white;
+        }
+    </style>
+</head>
+<body class="min-h-screen selection:bg-brand-gold/30 pb-20 md:pb-0">
+
+    <!-- MENU SUPERIOR (NAVBAR) -->
+    <nav class="bg-black/50 backdrop-blur-md border-b border-white/5 py-4 top-0 z-[100] hidden lg:block">
+        <div class="container mx-auto px-6 lg:px-20 xl:px-32 flex items-center">
+            <!-- Logo do site -->
+            <img src="LOGO-AC-8.png" alt="Logo" class="h-20 w-auto object-contain">
+        </div>
+    </nav>
+
+    <!-- SEÇÃO HOME (MAIN HERO) -->
+    <section class="relative bg-black overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <img src="bg.png" alt="Background" class="w-full h-full object-cover opacity-60">
+    </div>
+
+    <div class="container mx-auto px-6 lg:px-20 xl:px-32 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-8 items-end">
+            
+            <div class="pt-10 pb-0 lg:py-24"> 
+                <div class="space-y-8">
+                    <div class="space-y-4">
+                        <h1 class="text-3xl md:text-5xl font-semibold leading-tight">
+                            <span class="text-white">Limpeza de Nome Completa</span>
+                            <span class="text-brand-gold"> e Liberação de Crédito</span>
+                        </h1>
+                        <p class="text-white/70 text-base lg:text-lg max-w-xl leading-relaxed">
+                            Regularizamos seu nome no SPC, Serasa, Boa Vista e Cartórios com estratégia profissional para você voltar a ter crédito aprovado.
+                        </p>
+                    </div>
+
+                    <div class="flex items-end gap-2 lg:block">
+                        <ul class="space-y-3 pb-8 lg:pb-0 flex-1">
+                            <li class="flex items-center gap-2">
+                                <div class="bg-brand-gold/10 p-1 rounded-md shrink-0">
+                                    <i data-lucide="check-circle-2" class="text-brand-gold w-4 h-4"></i>
+                                </div>
+                                <span class="text-xs md:text-base font-bold text-white/90 uppercase tracking-wide">Aumento do Score</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <div class="bg-brand-gold/10 p-1 rounded-md shrink-0">
+                                    <i data-lucide="check-circle-2" class="text-brand-gold w-4 h-4"></i>
+                                </div>
+                                <span class="text-xs md:text-base font-bold text-white/90 uppercase tracking-wide">Limpa Bacen</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <div class="bg-brand-gold/10 p-1 rounded-md shrink-0">
+                                    <i data-lucide="check-circle-2" class="text-brand-gold w-4 h-4"></i>
+                                </div>
+                                <span class="text-xs md:text-base font-bold text-white/90 uppercase tracking-wide">Rating Comercial</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <div class="bg-brand-gold/10 p-1 rounded-md shrink-0">
+                                    <i data-lucide="check-circle-2" class="text-brand-gold w-4 h-4"></i>
+                                </div>
+                                <span class="text-xs md:text-base font-bold text-white/90 uppercase tracking-wide">Crédito Liberado</span>
+                            </li>
+                        </ul>
+
+                        <div class="lg:hidden flex-1 max-w-[180px]">
+                            <img src="men.png" alt="Especialista" class="w-full h-auto object-contain block align-bottom">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hidden lg:flex justify-end items-end">
+                <img src="men.png" alt="Especialista Alex Souza Cabral" class="max-h-[80vh] w-auto object-contain block">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- SEÇÃO PRINCIPAL DE CONTEÚDO -->
+    <div class="container mx-auto px-6 lg:px-20 xl:px-32 pt-20 lg:pt-32">
+        <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-16 items-start">
+            
+            <!-- Coluna da Esquerda: Textos e Detalhes -->
+            <div class="space-y-10">
+                <div class="space-y-4">
+                    <h2 class="text-5xl font-extrabold leading-[1.1] tracking-tight">
+                        <span class="text-brand-gold">Seu Nome Está Negativado?</span><br>
+                        Volte a Ter Crédito Ainda Esse Mês.
+                    </h2>
+                    <p class="text-white/60 text-lg lg:text-xl max-w-2xl leading-relaxed">
+                        Regularizamos seu nome no SPC, Serasa, Boa Vista e Bacen com estratégia jurídica segura e acompanhamento completo.
+                    </p>
+                </div>
+
+                <!-- Lista de Benefícios -->
+                <div class="flex flex-wrap gap-x-8 gap-y-4">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="lock" class="text-brand-gold w-5 h-5"></i>
+                        <span class="text-sm font-bold">Atendimento imediato</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="zap" class="text-brand-gold w-5 h-5"></i>
+                        <span class="text-sm font-bold">Análise rápida do seu CPF</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="bar-chart-3" class="text-brand-gold w-5 h-5"></i>
+                        <span class="text-sm font-bold">Aumento de score real</span>
+                    </div>
+                </div>
+
+                <!-- Grid de 4 Cards de Serviços -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl">
+                    <div class="card-grid-item">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="text-brand-gold w-5 h-5"></i>
+                            <span class="font-bold text-sm">Limpeza de Nome Completa</span>
+                        </div>
+                    </div>
+                    <div class="card-grid-item">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="trending-up" class="text-brand-gold w-5 h-5"></i>
+                            <span class="font-bold text-sm">Aumento de Score Rápido</span>
+                        </div>
+                    </div>
+                    <div class="card-grid-item">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="shield" class="text-brand-gold w-5 h-5"></i>
+                            <span class="font-bold text-sm">Remoção de Restrições no Bacen</span>
+                        </div>
+                    </div>
+                    <div class="card-grid-item">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="credit-card" class="text-brand-gold w-5 h-5"></i>
+                            <span class="font-bold text-sm">Liberação de Crédito e Cartões</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-white/40 text-sm italic max-w-md">
+                    Você pode estar sendo negado em crédito, financiamento ou cartão sem saber que isso tem solução.
+                </p>
+
+                <!-- BOTÃO COM ANIMAÇÃO DE FADE PULSE -->
+                <div class="flex flex-col sm:flex-row items-center gap-8 pt-4">
+                    <a href="https://wa.me/5592994458086?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20jurídicos." class="animate-fade-pulse bg-brand-gold hover:bg-brand-gold/90 text-black px-8 py-5 rounded-xl font-black text-lg flex items-center gap-3 transition-transform hover:scale-[1.02] shadow-[0_10px_30px_rgba(234,179,8,0.3)] w-full sm:w-auto text-center justify-center uppercase">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i>
+                        Limpar Meu Nome (Análise Grátis)
+                    </a>
+                    <a href="https://wa.me/5592994458086?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20jurídicos." class="flex items-center gap-2 text-white/80 hover:text-white font-bold transition-colors group">
+                        <i data-lucide="phone-call" class="w-5 h-5 text-brand-gold group-hover:scale-110 transition-transform"></i>
+                        Falar com especialista
+                    </a>
+                </div>
+
+                <!-- Indicadores de Confiança -->
+                <div class="space-y-4 pt-4">
+                    <div class="flex items-center gap-2 text-white/60 text-xs font-bold">
+                        <i data-lucide="lock" class="w-4 h-4"></i>
+                        <span>Atendimento sigiloso e 100% seguro.</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="flex gap-0.5 text-brand-gold">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <span class="text-white/60 text-xs font-medium">
+                            Centenas de clientes atendidos · Resultados comprovados
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna da Direita: Card de Simulação -->
+            <div class="flex justify-center lg:justify-end lg:pt-10">
+                <div class="bg-white/5 border border-brand-gold/20 rounded-2xl p-8 shadow-[0_0_50px_rgba(234,179,8,0.1)] max-w-[400px] w-full">
+                    <div class="text-center mb-8">
+                        <h3 class="text-brand-gold font-bold text-sm tracking-widest uppercase mb-1">Simulação de Resultado</h3>
+                        <p class="text-white/40 text-xs">Baseado em casos reais</p>
+                    </div>
+                    <div class="text-center mb-6">
+                        <span class="text-brand-green text-7xl font-extrabold tracking-tighter">780</span>
+                    </div>
+                    <div class="mb-8">
+                        <div class="h-3 bg-white/5 rounded-full overflow-hidden relative border border-white/10">
+                            <div class="h-full bg-brand-green rounded-full shadow-[0_0_15px_rgba(34,197,94,0.5)]" style="width: 85%;"></div>
+                        </div>
+                        <div class="flex justify-between mt-2 text-[10px] font-bold text-white/40">
+                            <span>300</span>
+                            <span>850</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-center mb-6">
+                        <div class="bg-brand-green/10 border border-brand-green/20 px-6 py-2 rounded-full flex items-center gap-2">
+                            <i data-lucide="trending-up" class="text-brand-green w-4 h-4"></i>
+                            <span class="text-brand-green font-bold text-sm">+360 pontos</span>
+                        </div>
+                    </div>
+                    <div class="text-center space-y-4">
+                        <p class="text-white/80 text-xs leading-relaxed">
+                            Clientes recuperam em média <span class="font-bold text-white">+300 pontos</span>
+                        </p>
+                        <div class="flex items-center justify-center gap-2 text-brand-green font-bold text-xs">
+                            <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                            <span>Resultado real possível*</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEÇÃO: COMO FUNCIONA -->
+    <section class="py-24 bg-brand-bg-alt relative mt-20">
+        <div class="container mx-auto px-6 lg:px-20 xl:px-32">
+            <div class="text-center mb-20">
+                <div class="w-16 h-1 bg-brand-gold mx-auto mb-8 rounded-full"></div>
+                <h2 class="text-4xl lg:text-6xl font-extrabold mb-4">Como <span class="text-brand-gold">Funciona?</span></h2>
+                <p class="text-white/40 text-lg">Nosso processo é simples, rápido e eficaz.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Passo 01 -->
+                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 relative overflow-hidden group hover:border-brand-gold/30 transition-all">
+                    <span class="absolute top-4 right-6 text-6xl font-black text-white/10 select-none group-hover:text-brand-gold/20 transition-colors">01</span>
+                    <div class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center text-brand-gold mb-8 border border-brand-gold/20">
+                        <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold mb-3 leading-tight group-hover:text-brand-gold transition-colors">Análise completa do seu CPF</h4>
+                    <p class="text-white/40 text-sm leading-relaxed">Verificamos todas as restrições em seu nome.</p>
+                </div>
+                <!-- Passo 02 -->
+                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 relative overflow-hidden group hover:border-brand-gold/30 transition-all">
+                    <span class="absolute top-4 right-6 text-6xl font-black text-white/10 select-none group-hover:text-brand-gold/20 transition-colors">02</span>
+                    <div class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center text-brand-gold mb-8 border border-brand-gold/20">
+                        <i data-lucide="credit-card" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold mb-3 leading-tight group-hover:text-brand-gold transition-colors">Identificação das restrições</h4>
+                    <p class="text-white/40 text-sm leading-relaxed">Mapeamos cada pendência e sua origem.</p>
+                </div>
+                <!-- Passo 03 -->
+                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 relative overflow-hidden group hover:border-brand-gold/30 transition-all">
+                    <span class="absolute top-4 right-6 text-6xl font-black text-white/10 select-none group-hover:text-brand-gold/20 transition-colors">03</span>
+                    <div class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center text-brand-gold mb-8 border border-brand-gold/20">
+                        <i data-lucide="shield" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold mb-3 leading-tight group-hover:text-brand-gold transition-colors">Estratégia jurídica personalizada</h4>
+                    <p class="text-white/40 text-sm leading-relaxed">Montamos um plano sob medida para seu caso.</p>
+                </div>
+                <!-- Passo 04 -->
+                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 relative overflow-hidden group hover:border-brand-gold/30 transition-all">
+                    <span class="absolute top-4 right-6 text-6xl font-black text-white/10 select-none group-hover:text-brand-gold/20 transition-colors">04</span>
+                    <div class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center text-brand-gold mb-8 border border-brand-gold/20">
+                        <i data-lucide="trending-up" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold mb-3 leading-tight group-hover:text-brand-gold transition-colors">Limpeza e recuperação do crédito</h4>
+                    <p class="text-white/40 text-sm leading-relaxed">Executamos e acompanhamos até o resultado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: ATENDIMENTO ESPECIALIZADO -->
+    <section class="py-24 bg-brand-bg">
+        <div class="container mx-auto px-6 lg:px-20 xl:px-32">
+            <div class="text-center mb-16">
+                <div class="w-12 h-1 bg-brand-gold mx-auto mb-8 rounded-full"></div>
+                <h2 class="text-4xl lg:text-5xl font-extrabold">Atendimento <span class="text-brand-gold">Especializado</span></h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+                <div class="bg-white/5 border border-white/10 rounded-xl p-6 flex items-center gap-6 hover:border-brand-gold/20 transition-all group">
+                    <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors">
+                        <i data-lucide="users" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Atendimento direto com especialista</h4>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-xl p-6 flex items-center gap-6 hover:border-brand-gold/20 transition-all group">
+                    <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors">
+                        <i data-lucide="search" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Análise individual do seu caso</h4>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-xl p-6 flex items-center gap-6 hover:border-brand-gold/20 transition-all group">
+                    <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors">
+                        <i data-lucide="shield" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Estratégia jurídica personalizada</h4>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-xl p-6 flex items-center gap-6 hover:border-brand-gold/20 transition-all group">
+                    <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors">
+                        <i data-lucide="zap" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Processo rápido e transparente</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: SOBRE O ESCRITÓRIO -->
+    <section class="py-24 bg-brand-bg-alt border-t border-white/5">
+        <div class="container mx-auto px-6 lg:px-20 xl:px-32 max-w-4xl text-center">
+            <div class="w-12 h-1 bg-brand-gold mx-auto mb-8 rounded-full"></div>
+            <h2 class="text-4xl lg:text-5xl font-extrabold mb-8">Sobre o <span class="text-brand-gold">Escritório</span></h2>
+            <p class="text-white/60 text-lg lg:text-xl leading-relaxed">
+                A <span class="font-bold text-white">Alex Souza Cabral</span> atua com foco em <span class="text-brand-gold font-bold">recuperação de crédito</span> e soluções jurídicas estratégicas, oferecendo segurança, agilidade e atendimento personalizado.
+            </p>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: POR QUE NOS ESCOLHER -->
+    <section class="py-24 bg-brand-bg">
+        <div class="container mx-auto px-6 lg:px-20 xl:px-32 max-w-4xl">
+            <div class="text-center mb-16">
+                <div class="w-12 h-1 bg-brand-gold mx-auto mb-8 rounded-full"></div>
+                <h2 class="text-4xl lg:text-5xl font-extrabold">Por Que <span class="text-brand-gold">Nos Escolher?</span></h2>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-6 hover:border-brand-gold/20 transition-all group">
+                    <div class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors shrink-0">
+                        <i data-lucide="award" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">+10 anos de experiência</span>
+                </div>
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-6 hover:border-brand-gold/20 transition-all group">
+                    <div class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors shrink-0">
+                        <i data-lucide="users" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Atendimento direto com especialista</span>
+                </div>
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-6 hover:border-brand-gold/20 transition-all group">
+                    <div class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors shrink-0">
+                        <i data-lucide="trending-up" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Alto índice de sucesso em recuperação de crédito</span>
+                </div>
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-6 hover:border-brand-gold/20 transition-all group">
+                    <div class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors shrink-0">
+                        <i data-lucide="shield" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Estratégias personalizadas para cada cliente</span>
+                </div>
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-6 hover:border-brand-gold/20 transition-all group">
+                    <div class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors shrink-0">
+                        <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Foco total em resultado</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: DEPOIMENTOS -->
+    <section class="py-24 bg-brand-bg-alt">
+        <div class="container mx-auto px-6 lg:px-20 xl:px-32">
+            <div class="text-center mb-16">
+                <div class="w-12 h-1 bg-brand-gold mx-auto mb-8 rounded-full"></div>
+                <h2 class="text-4xl lg:text-5xl font-extrabold">O Que Nossos <span class="text-brand-gold">Clientes Dizem</span></h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 hover:border-brand-gold/20 transition-all group">
+                    <div class="flex gap-1 text-brand-gold mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-white/80 italic mb-8 leading-relaxed">"Consegui limpar meu nome e voltar a ter crédito em poucos dias. Recomendo demais!"</p>
+                    <div class="text-white/40 font-bold text-sm">— Maria S.</div>
+                </div>
+                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 hover:border-brand-gold/20 transition-all group">
+                    <div class="flex gap-1 text-brand-gold mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-white/80 italic mb-8 leading-relaxed">"Atendimento rápido e direto, resolveram meu problema sem enrolação."</p>
+                    <div class="text-white/40 font-bold text-sm">— Carlos R.</div>
+                </div>
+                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 hover:border-brand-gold/20 transition-all group">
+                    <div class="flex gap-1 text-brand-gold mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-white/80 italic mb-8 leading-relaxed">"Meu score subiu muito depois do trabalho deles. Voltei a ter cartão de crédito!"</p>
+                    <div class="text-white/40 font-bold text-sm">— Ana P.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: OUTRAS ÁREAS -->
+    <section class="py-24 bg-brand-bg border-t border-white/5">
+        <div class="container mx-auto px-6 lg:px-20 xl:px-32">
+            <div class="text-center mb-16">
+                <div class="w-12 h-1 bg-brand-gold mx-auto mb-8 rounded-full"></div>
+                <h2 class="text-4xl lg:text-5xl font-extrabold">Também atuamos em <span class="text-brand-gold">outras áreas</span></h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-5 hover:border-brand-gold/30 transition-all group cursor-default">
+                    <div class="w-12 h-12 bg-brand-gold/5 rounded-xl flex items-center justify-center text-brand-gold border border-brand-gold/10 group-hover:bg-brand-gold/20 group-hover:scale-110 transition-all duration-300">
+                        <i data-lucide="credit-card" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white/80 group-hover:text-white transition-colors">Direito do Consumidor</h4>
+                </div>
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-5 hover:border-brand-gold/30 transition-all group cursor-default">
+                    <div class="w-12 h-12 bg-brand-gold/5 rounded-xl flex items-center justify-center text-brand-gold border border-brand-gold/10 group-hover:bg-brand-gold/20 group-hover:scale-110 transition-all duration-300">
+                        <i data-lucide="scale" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white/80 group-hover:text-white transition-colors">Direito Criminal</h4>
+                </div>
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-5 hover:border-brand-gold/30 transition-all group cursor-default">
+                    <div class="w-12 h-12 bg-brand-gold/5 rounded-xl flex items-center justify-center text-brand-gold border border-brand-gold/10 group-hover:bg-brand-gold/20 group-hover:scale-110 transition-all duration-300">
+                        <i data-lucide="heart-handshake" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white/80 group-hover:text-white transition-colors">Direito de Família</h4>
+                </div>
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-5 hover:border-brand-gold/30 transition-all group cursor-default">
+                    <div class="w-12 h-12 bg-brand-gold/5 rounded-xl flex items-center justify-center text-brand-gold border border-brand-gold/10 group-hover:bg-brand-gold/20 group-hover:scale-110 transition-all duration-300">
+                        <i data-lucide="file-text" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white/80 group-hover:text-white transition-colors">Direito Previdenciário</h4>
+                </div>
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-5 hover:border-brand-gold/30 transition-all group cursor-default">
+                    <div class="w-12 h-12 bg-brand-gold/5 rounded-xl flex items-center justify-center text-brand-gold border border-brand-gold/10 group-hover:bg-brand-gold/20 group-hover:scale-110 transition-all duration-300">
+                        <i data-lucide="gavel" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white/80 group-hover:text-white transition-colors">Direito do Trabalho</h4>
+                </div>
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-5 hover:border-brand-gold/30 transition-all group cursor-default">
+                    <div class="w-12 h-12 bg-brand-gold/5 rounded-xl flex items-center justify-center text-brand-gold border border-brand-gold/10 group-hover:bg-brand-gold/20 group-hover:scale-110 transition-all duration-300">
+                        <i data-lucide="banknote" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-white/80 group-hover:text-white transition-colors">Cobranças</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: CTA FINAL -->
+    <section class="py-24 bg-brand-bg-alt border-t border-white/5 text-center relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-gold/5 blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="container mx-auto px-6 lg:px-20 xl:px-32 relative z-10">
+            <div class="w-12 h-1 bg-brand-gold mx-auto mb-8 rounded-full"></div>
+            <h2 class="text-4xl lg:text-6xl font-extrabold mb-6 leading-tight">Pare de ser negado. <br><span class="text-brand-gold">Volte a ter crédito aprovado.</span></h2>
+            <p class="text-white/60 text-lg lg:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">Fale agora com um especialista e descubra como limpar seu nome com segurança.</p>
+            <div class="flex justify-center">
+                <a href="https://wa.me/5592994458086?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20jurídicos." target="_blank" class="bg-brand-gold hover:bg-brand-gold/90 text-black px-10 py-5 rounded-xl font-black text-lg flex items-center gap-3 transition-all hover:scale-[1.05] shadow-[0_10px_40px_rgba(234,179,8,0.3)] uppercase tracking-tight">
+                    <i data-lucide="message-circle" class="w-6 h-6"></i>
+                    Falar no WhatsApp Agora
+                </a>
+            </div>
+            <div class="flex items-center justify-center gap-2 text-white/40 text-sm mt-8 font-medium">
+                <i data-lucide="lock" class="w-4 h-4"></i>
+                <span>Atendimento sigiloso e 100% seguro.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ (FOOTER) -->
+    <footer class="bg-brand-bg pt-20 pb-32 md:pb-10 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr_1fr] gap-12 lg:gap-24 mb-16">
+                <!-- Info e Logo -->
+                <div class="space-y-8">
+                    <div class="w-full lg:w-48">
+                        <div class="w-full aspect-[3/1] bg-brand-gold/5 border border-brand-gold/10 rounded-lg flex items-center justify-center text-brand-gold/80 font-serif italic text-xl">
+                            <img src="LOGO-AC-8.png" alt="Logo" class="w-auto object-contain">
+                        </div>
+                    </div>
+                    <p class="text-white/80 text-sm leading-relaxed max-w-sm">Escritório criado com o objetivo de prestar assessoria jurídica, consultiva e estratégica com foco em recuperação de crédito.</p>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/alexsouzacabral" target="_blank" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-brand-gold hover:border-brand-gold transition-all group">
+                            <i data-lucide="instagram" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Links Úteis -->
+                <div class="grid grid-cols-2 gap-8 lg:contents">
+                    <div class="space-y-6">
+                        <h3 class="text-white font-serif font-bold uppercase tracking-widest text-sm">Links</h3>
+                        <ul class="space-y-4">
+                            <li><a href="#" class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors text-sm group"><i data-lucide="scale" class="w-3 h-3 text-brand-gold/70"></i>Home</a></li>
+                            <li><a href="#" class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors text-sm group"><i data-lucide="scale" class="w-3 h-3 text-brand-gold/70"></i>Sobre Nós</a></li>
+                            <li><a href="#" class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors text-sm group"><i data-lucide="scale" class="w-3 h-3 text-brand-gold/70"></i>Áreas de Atuação</a></li>
+                            <li><a href="#" class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors text-sm group"><i data-lucide="scale" class="w-3 h-3 text-brand-gold/70"></i>Contato</a></li>
+                        </ul>
+                    </div>
+                    <!-- Contato Escritório -->
+                    <div class="space-y-6">
+                        <h3 class="text-white font-serif font-bold uppercase tracking-widest text-sm">Escritório</h3>
+                        <ul class="space-y-4">
+                            <li><a href="https://wa.me/5592994458086?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20jurídicos." class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors text-sm group"><i data-lucide="phone-call" class="w-4 h-4 text-brand-gold/90"></i>(92) 99445-8086</a></li>
+                            <li><a href="mailto:advcabral.asc@gmail.com" class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors text-sm group"><i data-lucide="mail" class="w-4 h-4 text-brand-gold/90"></i>advcabral.asc@gmail.com</a></li>
+                            <li><div class="flex items-center gap-3 text-white/70 text-sm group"><i data-lucide="map-pin" class="w-4 h-4 text-brand-gold/90"></i>Manaus – AM</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 text-center">
+                <p class="text-white/50 text-[10px] md:text-xs uppercase tracking-widest font-medium">© 2026 Alex Souza Cabral – Assessoria e Consultoria Jurídica. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÃO WHATSAPP FLUTUANTE (MOBILE) -->
+    <div class="fixed bottom-0 left-0 right-0 z-[60] p-4 md:hidden">
+        <a href="https://wa.me/5592994458086?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20jurídicos." class="bg-brand-gold text-black w-full py-4 rounded-xl font-black text-base flex items-center justify-center gap-3 shadow-[0_-5px_30px_rgba(234,179,8,0.3)] active:scale-95 transition-transform uppercase">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            Limpar meu nome agora
+        </a>
+    </div>
+
+    <!-- BOTÃO WHATSAPP FLUTUANTE (DESKTOP) -->
+    <a href="https://wa.me/5592994458086?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20jurídicos." target="_blank" rel="noopener noreferrer" class="hidden md:flex fixed bottom-8 right-8 z-50 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform items-center justify-center group">
+        <i data-lucide="phone-call" class="w-8 h-8"></i>
+        <span class="absolute right-full mr-4 bg-white text-slate-800 px-4 py-2 rounded-lg shadow-xl font-bold text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">Fale Conosco</span>
+    </a>
+
+    <!-- SCRIPTS -->
+    
+    <!-- Lucide Icons: Biblioteca de ícones leve e moderna -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Inicializa todos os ícones da página
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>
