@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alex Souza Cabral – Assessoria e Consultoria Jurídica</title>
-    
+
     <!-- Tailwind CSS via CDN para estilização rápida e moderna -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts: Inter para o corpo e uma fonte Serif para elegância -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
     <!-- Configuração customizada do Tailwind -->
     <script>
         tailwind.config = {
@@ -20,7 +22,7 @@
                         brand: {
                             gold: '#EAB308', // Amarelo Dourado
                             bg: '#000000',   // Fundo Preto
-                            'bg-alt': '#0A0A0A', // Fundo Alternativo (Cinza quase preto)
+                            'bg-alt': '#1e1e1e', // Fundo Alternativo (Cinza quase preto)
                             green: '#22C55E' // Verde para resultados positivos
                         }
                     },
@@ -34,17 +36,24 @@
 
     <style>
         /* Estilos customizados e animações */
-        
+
         body {
-            background-color: #000000;
+            background-color: #0f0f0f;
             color: white;
             font-family: 'Inter', sans-serif;
         }
 
         /* Animação de Fade In/Out em Loop para o botão principal */
         @keyframes fadePulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
         }
 
         .animate-fade-pulse {
@@ -53,7 +62,7 @@
 
         /* Estilo para os itens de card no grid */
         .card-grid-item {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgb(234 179 8 / 20%);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 0.75rem;
             padding: 1rem;
@@ -75,165 +84,309 @@
             background: rgba(234, 179, 8, 0.3);
             color: white;
         }
+
+        /* card 780 */
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .score-number {
+            opacity: 0;
+        }
+
+        .score-number.animated {
+            animation: countUp 0.8s ease-out forwards;
+        }
+
+        /* ===== ANIMAÇÕES DE SCROLL ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Classes para aplicar as animações */
+        .animate-on-scroll {
+            opacity: 0;
+        }
+
+        .animate-on-scroll.visible-fade-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-on-scroll.visible-fade-left {
+            animation: fadeInLeft 0.8s ease-out forwards;
+        }
+
+        .animate-on-scroll.visible-fade-right {
+            animation: fadeInRight 0.8s ease-out forwards;
+        }
+
+        .animate-on-scroll.visible-scale {
+            animation: scaleIn 0.8s ease-out forwards;
+        }
+
+        /* Efeito de stagger para múltiplos elementos */
+        .animate-on-scroll.stagger-1 {
+            animation-delay: 0.1s;
+        }
+
+        .animate-on-scroll.stagger-2 {
+            animation-delay: 0.2s;
+        }
+
+        .animate-on-scroll.stagger-3 {
+            animation-delay: 0.3s;
+        }
+
+        .animate-on-scroll.stagger-4 {
+            animation-delay: 0.4s;
+        }
+
+        .animate-on-scroll.stagger-5 {
+            animation-delay: 0.5s;
+        }
+
+        .animate-on-scroll.stagger-6 {
+            animation-delay: 0.6s;
+        }
     </style>
 </head>
+
 <body class="min-h-screen selection:bg-brand-gold/30 pb-20 md:pb-0">
 
     <!-- MENU SUPERIOR (NAVBAR) -->
     <nav class="bg-black/50 backdrop-blur-md border-b border-white/5 py-4 top-0 z-[100] hidden lg:block">
         <div class="container mx-auto px-6 lg:px-20 xl:px-32 flex items-center">
             <!-- Logo do site -->
-            <img src="LOGO-AC-8.png" alt="Logo" class="h-20 w-auto object-contain">
+            <img src="LOGO-AC-8.png" alt="Logo" class="h-20 w-auto object-contain animate-on-scroll"
+                data-animation="fade-up">
         </div>
     </nav>
 
     <!-- SEÇÃO HOME (MAIN HERO) -->
     <section class="relative bg-black overflow-hidden">
-    <div class="absolute inset-0 z-0">
-        <img src="bg.png" alt="Background" class="w-full h-full object-cover opacity-60">
-    </div>
+        <div class="absolute inset-0 z-0">
+            <img src="bg.png" alt="Background" class="w-full h-full object-cover opacity-60">
+        </div>
 
-    <div class="container mx-auto px-6 lg:px-20 xl:px-32 relative z-10">
-        <div class="grid lg:grid-cols-2 gap-8 items-end">
-            
-            <div class="pt-10 pb-0 lg:py-24"> 
-                <div class="space-y-8">
-                    <div class="space-y-4">
-                        <h1 class="text-3xl md:text-5xl font-semibold leading-tight">
-                            <span class="text-white">Limpeza de Nome Completa</span>
-                            <span class="text-brand-gold"> e Liberação de Crédito</span>
-                        </h1>
-                        <p class="text-white/70 text-base lg:text-lg max-w-xl leading-relaxed">
-                            Regularizamos seu nome no SPC, Serasa, Boa Vista e Cartórios com estratégia profissional para você voltar a ter crédito aprovado.
-                        </p>
-                    </div>
+        <div class="container mx-auto px-6 lg:px-20 xl:px-32 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-8 items-end">
 
-                    <div class="flex items-end gap-2 lg:block">
-                        <ul class="space-y-3 pb-8 lg:pb-0 flex-1">
-                            <li class="flex items-center gap-2">
-                                <div class="bg-brand-gold/10 p-1 rounded-md shrink-0">
-                                    <i data-lucide="check-circle-2" class="text-brand-gold w-4 h-4"></i>
-                                </div>
-                                <span class="text-xs md:text-base font-bold text-white/90 uppercase tracking-wide">Aumento do Score</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <div class="bg-brand-gold/10 p-1 rounded-md shrink-0">
-                                    <i data-lucide="check-circle-2" class="text-brand-gold w-4 h-4"></i>
-                                </div>
-                                <span class="text-xs md:text-base font-bold text-white/90 uppercase tracking-wide">Limpa Bacen</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <div class="bg-brand-gold/10 p-1 rounded-md shrink-0">
-                                    <i data-lucide="check-circle-2" class="text-brand-gold w-4 h-4"></i>
-                                </div>
-                                <span class="text-xs md:text-base font-bold text-white/90 uppercase tracking-wide">Rating Comercial</span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <div class="bg-brand-gold/10 p-1 rounded-md shrink-0">
-                                    <i data-lucide="check-circle-2" class="text-brand-gold w-4 h-4"></i>
-                                </div>
-                                <span class="text-xs md:text-base font-bold text-white/90 uppercase tracking-wide">Crédito Liberado</span>
-                            </li>
-                        </ul>
+                <div class="pt-10 pb-0 lg:py-24">
+                    <div class="space-y-8">
+                        <div class="space-y-4">
+                            <h1 class="text-3xl md:text-5xl font-semibold leading-tight animate-on-scroll"
+                                data-animation="fade-left">
+                                <span class="text-white">Limpeza de Nome Completa</span>
+                                <span class="text-brand-gold"> e Liberação de Crédito</span>
+                            </h1>
+                            <p class="text-white/70 text-base lg:text-lg max-w-xl leading-relaxed animate-on-scroll stagger-1"
+                                data-animation="fade-left">
+                                Regularizamos seu nome no SPC, Serasa, Boa Vista e Cartórios com estratégia profissional
+                                para você voltar a ter crédito aprovado.
+                            </p>
+                        </div>
 
-                        <div class="lg:hidden flex-1 max-w-[180px]">
-                            <img src="men.png" alt="Especialista" class="w-full h-auto object-contain block align-bottom">
+                        <div class="flex items-end gap-2 lg:block">
+                            <ul class="space-y-3 pb-8 lg:pb-0 flex-1">
+                                <li class="flex items-center gap-2 animate-on-scroll stagger-1"
+                                    data-animation="fade-left">
+                                    <div class="bg-brand-gold/10 p-1 rounded-md shrink-0">
+                                        <i data-lucide="check-circle-2" class="text-brand-gold w-4 h-4"></i>
+                                    </div>
+                                    <span
+                                        class="text-sm md:text-lg font-bold text-white/90 uppercase tracking-wide">Aumento
+                                        do Score</span>
+                                </li>
+                                <li class="flex items-center gap-2 animate-on-scroll stagger-2"
+                                    data-animation="fade-left">
+                                    <div class="bg-brand-gold/10 p-1 rounded-md shrink-0">
+                                        <i data-lucide="check-circle-2" class="text-brand-gold w-4 h-4"></i>
+                                    </div>
+                                    <span
+                                        class="text-sm md:text-lg font-bold text-white/90 uppercase tracking-wide">Limpa
+                                        Bacen</span>
+                                </li>
+                                <li class="flex items-center gap-2 animate-on-scroll stagger-3"
+                                    data-animation="fade-left">
+                                    <div class="bg-brand-gold/10 p-1 rounded-md shrink-0">
+                                        <i data-lucide="check-circle-2" class="text-brand-gold w-4 h-4"></i>
+                                    </div>
+                                    <span
+                                        class="text-sm md:text-lg font-bold text-white/90 uppercase tracking-wide">Rating
+                                        Comercial</span>
+                                </li>
+                                <li class="flex items-center gap-2 animate-on-scroll stagger-4"
+                                    data-animation="fade-left">
+                                    <div class="bg-brand-gold/10 p-1 rounded-md shrink-0">
+                                        <i data-lucide="check-circle-2" class="text-brand-gold w-4 h-4"></i>
+                                    </div>
+                                    <span
+                                        class="text-sm md:text-lg font-bold text-white/90 uppercase tracking-wide">Crédito
+                                        Liberado</span>
+                                </li>
+                            </ul>
+
+                            <div class="lg:hidden flex-1 max-w-[180px]">
+                                <img src="men.png" alt="Especialista"
+                                    class="w-full h-auto object-contain block align-bottom animate-on-scroll"
+                                    data-animation="fade-right">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="hidden lg:flex justify-end items-end">
-                <img src="men.png" alt="Especialista Alex Souza Cabral" class="max-h-[80vh] w-auto object-contain block">
-            </div>
+                <div class="hidden lg:flex justify-end items-end">
+                    <img src="men.png" alt="Especialista Alex Souza Cabral"
+                        class="max-h-[80vh] w-auto object-contain block animate-on-scroll" data-animation="fade-right">
+                </div>
 
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- SEÇÃO PRINCIPAL DE CONTEÚDO -->
-    <div class="container mx-auto px-6 lg:px-20 xl:px-32 pt-20 lg:pt-32">
+    <div id="inicio" class="container mx-auto px-6 lg:px-20 xl:px-32 pt-20 lg:pt-32">
         <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-16 items-start">
-            
+
             <!-- Coluna da Esquerda: Textos e Detalhes -->
             <div class="space-y-10">
                 <div class="space-y-4">
-                    <h2 class="text-5xl font-extrabold leading-[1.1] tracking-tight">
+                    <h2 class="text-5xl font-extrabold leading-[1.1] tracking-tight animate-on-scroll"
+                        data-animation="fade-up">
                         <span class="text-brand-gold">Seu Nome Está Negativado?</span><br>
                         Volte a Ter Crédito Ainda Esse Mês.
                     </h2>
-                    <p class="text-white/60 text-lg lg:text-xl max-w-2xl leading-relaxed">
-                        Regularizamos seu nome no SPC, Serasa, Boa Vista e Bacen com estratégia jurídica segura e acompanhamento completo.
+                    <p class="text-white/60 text-lg lg:text-xl max-w-2xl leading-relaxed animate-on-scroll stagger-1"
+                        data-animation="fade-up">
+                        Regularizamos seu nome no SPC, Serasa, Boa Vista e Bacen com estratégia jurídica segura e
+                        acompanhamento completo.
                     </p>
                 </div>
 
                 <!-- Lista de Benefícios -->
                 <div class="flex flex-wrap gap-x-8 gap-y-4">
-                    <div class="flex items-center gap-2">
+                    <div class="flex items-center gap-2 animate-on-scroll stagger-1" data-animation="fade-up">
                         <i data-lucide="lock" class="text-brand-gold w-5 h-5"></i>
-                        <span class="text-sm font-bold">Atendimento imediato</span>
+                        <span class="text-base font-bold">Atendimento imediato</span>
                     </div>
-                    <div class="flex items-center gap-2">
+                    <div class="flex items-center gap-2 animate-on-scroll stagger-2" data-animation="fade-up">
                         <i data-lucide="zap" class="text-brand-gold w-5 h-5"></i>
-                        <span class="text-sm font-bold">Análise rápida do seu CPF</span>
+                        <span class="text-base font-bold">Análise rápida do seu CPF</span>
                     </div>
-                    <div class="flex items-center gap-2">
+                    <div class="flex items-center gap-2 animate-on-scroll stagger-3" data-animation="fade-up">
                         <i data-lucide="bar-chart-3" class="text-brand-gold w-5 h-5"></i>
-                        <span class="text-sm font-bold">Aumento de score real</span>
+                        <span class="text-base font-bold">Aumento de score real</span>
                     </div>
                 </div>
 
                 <!-- Grid de 4 Cards de Serviços -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl">
-                    <div class="card-grid-item">
+                    <div class="card-grid-item animate-on-scroll stagger-1" data-animation="fade-up">
                         <div class="flex items-center gap-3">
                             <i data-lucide="check-circle-2" class="text-brand-gold w-5 h-5"></i>
-                            <span class="font-bold text-sm">Limpeza de Nome Completa</span>
+                            <span class="font-bold text-lg">Limpeza de Nome Completa</span>
                         </div>
                     </div>
-                    <div class="card-grid-item">
+                    <div class="card-grid-item animate-on-scroll stagger-2" data-animation="fade-up">
                         <div class="flex items-center gap-3">
                             <i data-lucide="trending-up" class="text-brand-gold w-5 h-5"></i>
-                            <span class="font-bold text-sm">Aumento de Score Rápido</span>
+                            <span class="font-bold text-lg">Aumento de Score Rápido</span>
                         </div>
                     </div>
-                    <div class="card-grid-item">
+                    <div class="card-grid-item animate-on-scroll stagger-3" data-animation="fade-up">
                         <div class="flex items-center gap-3">
                             <i data-lucide="shield" class="text-brand-gold w-5 h-5"></i>
-                            <span class="font-bold text-sm">Remoção de Restrições no Bacen</span>
+                            <span class="font-bold text-lg">Remoção de Restrições no Bacen</span>
                         </div>
                     </div>
-                    <div class="card-grid-item">
+                    <div class="card-grid-item animate-on-scroll stagger-4" data-animation="fade-up">
                         <div class="flex items-center gap-3">
                             <i data-lucide="credit-card" class="text-brand-gold w-5 h-5"></i>
-                            <span class="font-bold text-sm">Liberação de Crédito e Cartões</span>
+                            <span class="font-bold text-lg">Liberação de Crédito e Cartões</span>
                         </div>
                     </div>
                 </div>
 
-                <p class="text-white/40 text-sm italic max-w-md">
+                <p class="text-white/40 text-sm italic max-w-md animate-on-scroll" data-animation="fade-up">
                     Você pode estar sendo negado em crédito, financiamento ou cartão sem saber que isso tem solução.
                 </p>
 
                 <!-- BOTÃO COM ANIMAÇÃO DE FADE PULSE -->
-                <div class="flex flex-col sm:flex-row items-center gap-8 pt-4">
-                    <a href="https://wa.me/5592994458086?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20jurídicos." class="animate-fade-pulse bg-brand-gold hover:bg-brand-gold/90 text-black px-8 py-5 rounded-xl font-black text-lg flex items-center gap-3 transition-transform hover:scale-[1.02] shadow-[0_10px_30px_rgba(234,179,8,0.3)] w-full sm:w-auto text-center justify-center uppercase">
+                <div class="flex flex-col sm:flex-row items-center gap-8 pt-4 animate-on-scroll stagger-1"
+                    data-animation="fade-up">
+                    <a href="https://wa.me/5592994458086?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20jurídicos."
+                        class="animate-fade-pulse bg-brand-gold hover:bg-brand-gold/90 text-black px-8 py-5 rounded-xl font-black text-lg flex items-center gap-3 transition-transform hover:scale-[1.02] shadow-[0_10px_30px_rgba(234,179,8,0.3)] w-full sm:w-auto text-center justify-center uppercase">
                         <i data-lucide="message-circle" class="w-6 h-6"></i>
                         Limpar Meu Nome (Análise Grátis)
                     </a>
-                    <a href="https://wa.me/5592994458086?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20jurídicos." class="flex items-center gap-2 text-white/80 hover:text-white font-bold transition-colors group">
-                        <i data-lucide="phone-call" class="w-5 h-5 text-brand-gold group-hover:scale-110 transition-transform"></i>
+                    <a href="https://wa.me/5592994458086?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20jurídicos."
+                        class="flex items-center gap-2 text-white/80 hover:text-white font-bold transition-colors group">
+                        <i data-lucide="phone-call"
+                            class="w-5 h-5 text-brand-gold group-hover:scale-110 transition-transform"></i>
                         Falar com especialista
                     </a>
                 </div>
 
                 <!-- Indicadores de Confiança -->
                 <div class="space-y-4 pt-4">
-                    <div class="flex items-center gap-2 text-white/60 text-xs font-bold">
+                    <div class="flex items-center gap-2 text-white/60 text-xs font-bold animate-on-scroll"
+                        data-animation="fade-up">
                         <i data-lucide="lock" class="w-4 h-4"></i>
                         <span>Atendimento sigiloso e 100% seguro.</span>
                     </div>
-                    <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-3 animate-on-scroll" data-animation="fade-up">
                         <div class="flex gap-0.5 text-brand-gold">
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -250,27 +403,33 @@
 
             <!-- Coluna da Direita: Card de Simulação -->
             <div class="flex justify-center lg:justify-end lg:pt-10">
-                <div class="bg-white/5 border border-brand-gold/20 rounded-2xl p-8 shadow-[0_0_50px_rgba(234,179,8,0.1)] max-w-[400px] w-full">
+                <div class="bg-white/5 border border-brand-gold/20 rounded-2xl p-8 shadow-[0_0_50px_rgba(234,179,8,0.1)] max-w-[400px] w-full animate-on-scroll"
+                    data-animation="scale">
                     <div class="text-center mb-8">
-                        <h3 class="text-brand-gold font-bold text-sm tracking-widest uppercase mb-1">Simulação de Resultado</h3>
+                        <h3 class="text-brand-gold font-bold text-sm tracking-widest uppercase mb-1">Simulação de
+                            Resultado</h3>
                         <p class="text-white/40 text-xs">Baseado em casos reais</p>
                     </div>
                     <div class="text-center mb-6">
-                        <span class="text-brand-green text-7xl font-extrabold tracking-tighter">780</span>
+                        <span id="scoreNumber"
+                            class="text-brand-green text-7xl font-extrabold tracking-tighter score-number">300</span>
                     </div>
+
                     <div class="mb-8">
                         <div class="h-3 bg-white/5 rounded-full overflow-hidden relative border border-white/10">
-                            <div class="h-full bg-brand-green rounded-full shadow-[0_0_15px_rgba(34,197,94,0.5)]" style="width: 85%;"></div>
+                            <div class="progress-bar h-full rounded-full transition-all" style="width: 85%;"></div>
                         </div>
                         <div class="flex justify-between mt-2 text-[10px] font-bold text-white/40">
                             <span>300</span>
                             <span>850</span>
                         </div>
                     </div>
+
                     <div class="flex justify-center mb-6">
-                        <div class="bg-brand-green/10 border border-brand-green/20 px-6 py-2 rounded-full flex items-center gap-2">
+                        <div
+                            class="bg-brand-green/10 border border-brand-green/20 px-6 py-2 rounded-full flex items-center gap-2">
                             <i data-lucide="trending-up" class="text-brand-green w-4 h-4"></i>
-                            <span class="text-brand-green font-bold text-sm">+360 pontos</span>
+                            <span id="pointsNumber" class="text-brand-green font-bold text-sm">+0 pontos</span>
                         </div>
                     </div>
                     <div class="text-center space-y-4">
@@ -291,45 +450,64 @@
     <section class="py-24 bg-brand-bg-alt relative mt-20">
         <div class="container mx-auto px-6 lg:px-20 xl:px-32">
             <div class="text-center mb-20">
-                <div class="w-16 h-1 bg-brand-gold mx-auto mb-8 rounded-full"></div>
-                <h2 class="text-4xl lg:text-6xl font-extrabold mb-4">Como <span class="text-brand-gold">Funciona?</span></h2>
-                <p class="text-white/40 text-lg">Nosso processo é simples, rápido e eficaz.</p>
+                <div class="w-16 h-1 bg-brand-gold mx-auto mb-8 rounded-full animate-on-scroll"
+                    data-animation="fade-up"></div>
+                <h2 class="text-4xl lg:text-6xl font-extrabold mb-4 animate-on-scroll stagger-1"
+                    data-animation="fade-up">Como <span class="text-brand-gold">Funciona?</span></h2>
+                <p class="text-white/40 text-lg animate-on-scroll stagger-2" data-animation="fade-up">Nosso processo é
+                    simples, rápido e eficaz.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Passo 01 -->
-                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 relative overflow-hidden group hover:border-brand-gold/30 transition-all">
-                    <span class="absolute top-4 right-6 text-6xl font-black text-white/10 select-none group-hover:text-brand-gold/20 transition-colors">01</span>
-                    <div class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center text-brand-gold mb-8 border border-brand-gold/20">
+                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 relative overflow-hidden group hover:border-brand-gold/30 transition-all animate-on-scroll stagger-1"
+                    data-animation="fade-up">
+                    <span
+                        class="absolute top-4 right-6 text-6xl font-black text-white/10 select-none group-hover:text-brand-gold/20 transition-colors">01</span>
+                    <div
+                        class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center text-brand-gold mb-8 border border-brand-gold/20">
                         <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
                     </div>
-                    <h4 class="text-lg font-bold mb-3 leading-tight group-hover:text-brand-gold transition-colors">Análise completa do seu CPF</h4>
+                    <h4 class="text-lg font-bold mb-3 leading-tight group-hover:text-brand-gold transition-colors">
+                        Análise completa do seu CPF</h4>
                     <p class="text-white/40 text-sm leading-relaxed">Verificamos todas as restrições em seu nome.</p>
                 </div>
                 <!-- Passo 02 -->
-                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 relative overflow-hidden group hover:border-brand-gold/30 transition-all">
-                    <span class="absolute top-4 right-6 text-6xl font-black text-white/10 select-none group-hover:text-brand-gold/20 transition-colors">02</span>
-                    <div class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center text-brand-gold mb-8 border border-brand-gold/20">
+                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 relative overflow-hidden group hover:border-brand-gold/30 transition-all animate-on-scroll stagger-2"
+                    data-animation="fade-up">
+                    <span
+                        class="absolute top-4 right-6 text-6xl font-black text-white/10 select-none group-hover:text-brand-gold/20 transition-colors">02</span>
+                    <div
+                        class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center text-brand-gold mb-8 border border-brand-gold/20">
                         <i data-lucide="credit-card" class="w-6 h-6"></i>
                     </div>
-                    <h4 class="text-lg font-bold mb-3 leading-tight group-hover:text-brand-gold transition-colors">Identificação das restrições</h4>
+                    <h4 class="text-lg font-bold mb-3 leading-tight group-hover:text-brand-gold transition-colors">
+                        Identificação das restrições</h4>
                     <p class="text-white/40 text-sm leading-relaxed">Mapeamos cada pendência e sua origem.</p>
                 </div>
                 <!-- Passo 03 -->
-                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 relative overflow-hidden group hover:border-brand-gold/30 transition-all">
-                    <span class="absolute top-4 right-6 text-6xl font-black text-white/10 select-none group-hover:text-brand-gold/20 transition-colors">03</span>
-                    <div class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center text-brand-gold mb-8 border border-brand-gold/20">
+                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 relative overflow-hidden group hover:border-brand-gold/30 transition-all animate-on-scroll stagger-3"
+                    data-animation="fade-up">
+                    <span
+                        class="absolute top-4 right-6 text-6xl font-black text-white/10 select-none group-hover:text-brand-gold/20 transition-colors">03</span>
+                    <div
+                        class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center text-brand-gold mb-8 border border-brand-gold/20">
                         <i data-lucide="shield" class="w-6 h-6"></i>
                     </div>
-                    <h4 class="text-lg font-bold mb-3 leading-tight group-hover:text-brand-gold transition-colors">Estratégia jurídica personalizada</h4>
+                    <h4 class="text-lg font-bold mb-3 leading-tight group-hover:text-brand-gold transition-colors">
+                        Estratégia jurídica personalizada</h4>
                     <p class="text-white/40 text-sm leading-relaxed">Montamos um plano sob medida para seu caso.</p>
                 </div>
                 <!-- Passo 04 -->
-                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 relative overflow-hidden group hover:border-brand-gold/30 transition-all">
-                    <span class="absolute top-4 right-6 text-6xl font-black text-white/10 select-none group-hover:text-brand-gold/20 transition-colors">04</span>
-                    <div class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center text-brand-gold mb-8 border border-brand-gold/20">
+                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 relative overflow-hidden group hover:border-brand-gold/30 transition-all animate-on-scroll stagger-4"
+                    data-animation="fade-up">
+                    <span
+                        class="absolute top-4 right-6 text-6xl font-black text-white/10 select-none group-hover:text-brand-gold/20 transition-colors">04</span>
+                    <div
+                        class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center text-brand-gold mb-8 border border-brand-gold/20">
                         <i data-lucide="trending-up" class="w-6 h-6"></i>
                     </div>
-                    <h4 class="text-lg font-bold mb-3 leading-tight group-hover:text-brand-gold transition-colors">Limpeza e recuperação do crédito</h4>
+                    <h4 class="text-lg font-bold mb-3 leading-tight group-hover:text-brand-gold transition-colors">
+                        Limpeza e recuperação do crédito</h4>
                     <p class="text-white/40 text-sm leading-relaxed">Executamos e acompanhamos até o resultado.</p>
                 </div>
             </div>
@@ -340,45 +518,64 @@
     <section class="py-24 bg-brand-bg">
         <div class="container mx-auto px-6 lg:px-20 xl:px-32">
             <div class="text-center mb-16">
-                <div class="w-12 h-1 bg-brand-gold mx-auto mb-8 rounded-full"></div>
-                <h2 class="text-4xl lg:text-5xl font-extrabold">Atendimento <span class="text-brand-gold">Especializado</span></h2>
+                <div class="w-12 h-1 bg-brand-gold mx-auto mb-8 rounded-full animate-on-scroll"
+                    data-animation="fade-up"></div>
+                <h2 class="text-4xl lg:text-5xl font-extrabold animate-on-scroll stagger-1" data-animation="fade-up">
+                    Atendimento <span class="text-brand-gold">Especializado</span></h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto">
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 flex items-center gap-6 hover:border-brand-gold/20 transition-all group">
-                    <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors">
+                <div class="bg-white/5 border border-white/10 rounded-xl p-6 flex items-center gap-6 hover:border-brand-gold/20 transition-all group animate-on-scroll stagger-1"
+                    data-animation="fade-up">
+                    <div
+                        class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors">
                         <i data-lucide="users" class="w-5 h-5"></i>
                     </div>
-                    <h4 class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Atendimento direto com especialista</h4>
+                    <h4 class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Atendimento
+                        direto com especialista</h4>
                 </div>
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 flex items-center gap-6 hover:border-brand-gold/20 transition-all group">
-                    <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors">
+                <div class="bg-white/5 border border-white/10 rounded-xl p-6 flex items-center gap-6 hover:border-brand-gold/20 transition-all group animate-on-scroll stagger-2"
+                    data-animation="fade-up">
+                    <div
+                        class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors">
                         <i data-lucide="search" class="w-5 h-5"></i>
                     </div>
-                    <h4 class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Análise individual do seu caso</h4>
+                    <h4 class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Análise
+                        individual do seu caso</h4>
                 </div>
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 flex items-center gap-6 hover:border-brand-gold/20 transition-all group">
-                    <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors">
+                <div class="bg-white/5 border border-white/10 rounded-xl p-6 flex items-center gap-6 hover:border-brand-gold/20 transition-all group animate-on-scroll stagger-3"
+                    data-animation="fade-up">
+                    <div
+                        class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors">
                         <i data-lucide="shield" class="w-5 h-5"></i>
                     </div>
-                    <h4 class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Estratégia jurídica personalizada</h4>
+                    <h4 class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Estratégia
+                        jurídica personalizada</h4>
                 </div>
-                <div class="bg-white/5 border border-white/10 rounded-xl p-6 flex items-center gap-6 hover:border-brand-gold/20 transition-all group">
-                    <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors">
+                <div class="bg-white/5 border border-white/10 rounded-xl p-6 flex items-center gap-6 hover:border-brand-gold/20 transition-all group animate-on-scroll stagger-4"
+                    data-animation="fade-up">
+                    <div
+                        class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors">
                         <i data-lucide="zap" class="w-5 h-5"></i>
                     </div>
-                    <h4 class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Processo rápido e transparente</h4>
+                    <h4 class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Processo rápido
+                        e transparente</h4>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- SEÇÃO: SOBRE O ESCRITÓRIO -->
-    <section class="py-24 bg-brand-bg-alt border-t border-white/5">
+    <section id="sobre" class="py-24 bg-brand-bg-alt border-t border-white/5">
         <div class="container mx-auto px-6 lg:px-20 xl:px-32 max-w-4xl text-center">
-            <div class="w-12 h-1 bg-brand-gold mx-auto mb-8 rounded-full"></div>
-            <h2 class="text-4xl lg:text-5xl font-extrabold mb-8">Sobre o <span class="text-brand-gold">Escritório</span></h2>
-            <p class="text-white/60 text-lg lg:text-xl leading-relaxed">
-                A <span class="font-bold text-white">Alex Souza Cabral</span> atua com foco em <span class="text-brand-gold font-bold">recuperação de crédito</span> e soluções jurídicas estratégicas, oferecendo segurança, agilidade e atendimento personalizado.
+            <div class="w-12 h-1 bg-brand-gold mx-auto mb-8 rounded-full animate-on-scroll" data-animation="fade-up">
+            </div>
+            <h2 class="text-4xl lg:text-5xl font-extrabold mb-8 animate-on-scroll stagger-1" data-animation="fade-up">
+                Sobre o <span class="text-brand-gold">Escritório</span></h2>
+            <p class="text-white/60 text-lg lg:text-xl leading-relaxed animate-on-scroll stagger-2"
+                data-animation="fade-up">
+                A <span class="font-bold text-white">Alex Souza Cabral</span> atua com foco em <span
+                    class="text-brand-gold font-bold">recuperação de crédito</span> e soluções jurídicas estratégicas,
+                oferecendo segurança, agilidade e atendimento personalizado.
             </p>
         </div>
     </section>
@@ -387,39 +584,56 @@
     <section class="py-24 bg-brand-bg">
         <div class="container mx-auto px-6 lg:px-20 xl:px-32 max-w-4xl">
             <div class="text-center mb-16">
-                <div class="w-12 h-1 bg-brand-gold mx-auto mb-8 rounded-full"></div>
-                <h2 class="text-4xl lg:text-5xl font-extrabold">Por Que <span class="text-brand-gold">Nos Escolher?</span></h2>
+                <div class="w-12 h-1 bg-brand-gold mx-auto mb-8 rounded-full animate-on-scroll"
+                    data-animation="fade-up"></div>
+                <h2 class="text-4xl lg:text-5xl font-extrabold animate-on-scroll stagger-1" data-animation="fade-up">Por
+                    Que <span class="text-brand-gold">Nos Escolher?</span></h2>
             </div>
             <div class="space-y-4">
-                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-6 hover:border-brand-gold/20 transition-all group">
-                    <div class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors shrink-0">
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-6 hover:border-brand-gold/20 transition-all group animate-on-scroll stagger-1"
+                    data-animation="fade-up">
+                    <div
+                        class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors shrink-0">
                         <i data-lucide="award" class="w-5 h-5"></i>
                     </div>
-                    <span class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">+10 anos de experiência</span>
+                    <span class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">+10 anos de
+                        experiência</span>
                 </div>
-                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-6 hover:border-brand-gold/20 transition-all group">
-                    <div class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors shrink-0">
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-6 hover:border-brand-gold/20 transition-all group animate-on-scroll stagger-2"
+                    data-animation="fade-up">
+                    <div
+                        class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors shrink-0">
                         <i data-lucide="users" class="w-5 h-5"></i>
                     </div>
-                    <span class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Atendimento direto com especialista</span>
+                    <span class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Atendimento
+                        direto com especialista</span>
                 </div>
-                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-6 hover:border-brand-gold/20 transition-all group">
-                    <div class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors shrink-0">
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-6 hover:border-brand-gold/20 transition-all group animate-on-scroll stagger-3"
+                    data-animation="fade-up">
+                    <div
+                        class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors shrink-0">
                         <i data-lucide="trending-up" class="w-5 h-5"></i>
                     </div>
-                    <span class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Alto índice de sucesso em recuperação de crédito</span>
+                    <span class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Alto índice
+                        de sucesso em recuperação de crédito</span>
                 </div>
-                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-6 hover:border-brand-gold/20 transition-all group">
-                    <div class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors shrink-0">
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-6 hover:border-brand-gold/20 transition-all group animate-on-scroll stagger-4"
+                    data-animation="fade-up">
+                    <div
+                        class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors shrink-0">
                         <i data-lucide="shield" class="w-5 h-5"></i>
                     </div>
-                    <span class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Estratégias personalizadas para cada cliente</span>
+                    <span class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Estratégias
+                        personalizadas para cada cliente</span>
                 </div>
-                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-6 hover:border-brand-gold/20 transition-all group">
-                    <div class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors shrink-0">
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-6 hover:border-brand-gold/20 transition-all group animate-on-scroll stagger-5"
+                    data-animation="fade-up">
+                    <div
+                        class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-brand-gold border border-white/10 group-hover:bg-brand-gold/10 transition-colors shrink-0">
                         <i data-lucide="check-circle-2" class="w-5 h-5"></i>
                     </div>
-                    <span class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Foco total em resultado</span>
+                    <span class="text-lg font-bold text-white/90 group-hover:text-white transition-colors">Foco total em
+                        resultado</span>
                 </div>
             </div>
         </div>
@@ -429,11 +643,14 @@
     <section class="py-24 bg-brand-bg-alt">
         <div class="container mx-auto px-6 lg:px-20 xl:px-32">
             <div class="text-center mb-16">
-                <div class="w-12 h-1 bg-brand-gold mx-auto mb-8 rounded-full"></div>
-                <h2 class="text-4xl lg:text-5xl font-extrabold">O Que Nossos <span class="text-brand-gold">Clientes Dizem</span></h2>
+                <div class="w-12 h-1 bg-brand-gold mx-auto mb-8 rounded-full animate-on-scroll"
+                    data-animation="fade-up"></div>
+                <h2 class="text-4xl lg:text-5xl font-extrabold animate-on-scroll stagger-1" data-animation="fade-up">O
+                    Que Nossos <span class="text-brand-gold">Clientes Dizem</span></h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 hover:border-brand-gold/20 transition-all group">
+                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 hover:border-brand-gold/20 transition-all group animate-on-scroll stagger-1"
+                    data-animation="fade-up">
                     <div class="flex gap-1 text-brand-gold mb-6">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -441,10 +658,12 @@
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
-                    <p class="text-white/80 italic mb-8 leading-relaxed">"Consegui limpar meu nome e voltar a ter crédito em poucos dias. Recomendo demais!"</p>
+                    <p class="text-white/80 italic mb-8 leading-relaxed">"Consegui limpar meu nome e voltar a ter
+                        crédito em poucos dias. Recomendo demais!"</p>
                     <div class="text-white/40 font-bold text-sm">— Maria S.</div>
                 </div>
-                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 hover:border-brand-gold/20 transition-all group">
+                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 hover:border-brand-gold/20 transition-all group animate-on-scroll stagger-2"
+                    data-animation="fade-up">
                     <div class="flex gap-1 text-brand-gold mb-6">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -452,10 +671,12 @@
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
-                    <p class="text-white/80 italic mb-8 leading-relaxed">"Atendimento rápido e direto, resolveram meu problema sem enrolação."</p>
+                    <p class="text-white/80 italic mb-8 leading-relaxed">"Atendimento rápido e direto, resolveram meu
+                        problema sem enrolação."</p>
                     <div class="text-white/40 font-bold text-sm">— Carlos R.</div>
                 </div>
-                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 hover:border-brand-gold/20 transition-all group">
+                <div class="bg-white/5 border border-white/5 rounded-2xl p-8 hover:border-brand-gold/20 transition-all group animate-on-scroll stagger-3"
+                    data-animation="fade-up">
                     <div class="flex gap-1 text-brand-gold mb-6">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -463,7 +684,8 @@
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
-                    <p class="text-white/80 italic mb-8 leading-relaxed">"Meu score subiu muito depois do trabalho deles. Voltei a ter cartão de crédito!"</p>
+                    <p class="text-white/80 italic mb-8 leading-relaxed">"Meu score subiu muito depois do trabalho
+                        deles. Voltei a ter cartão de crédito!"</p>
                     <div class="text-white/40 font-bold text-sm">— Ana P.</div>
                 </div>
             </div>
@@ -471,67 +693,97 @@
     </section>
 
     <!-- SEÇÃO: OUTRAS ÁREAS -->
-    <section class="py-24 bg-brand-bg border-t border-white/5">
+    <section id="areas" class="py-24 bg-brand-bg border-t border-white/5">
         <div class="container mx-auto px-6 lg:px-20 xl:px-32">
             <div class="text-center mb-16">
-                <div class="w-12 h-1 bg-brand-gold mx-auto mb-8 rounded-full"></div>
-                <h2 class="text-4xl lg:text-5xl font-extrabold">Também atuamos em <span class="text-brand-gold">outras áreas</span></h2>
+                <div class="w-12 h-1 bg-brand-gold mx-auto mb-8 rounded-full animate-on-scroll"
+                    data-animation="fade-up"></div>
+                <h2 class="text-4xl lg:text-5xl font-extrabold animate-on-scroll stagger-1" data-animation="fade-up">
+                    Também atuamos em <span class="text-brand-gold">outras áreas</span></h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
-                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-5 hover:border-brand-gold/30 transition-all group cursor-default">
-                    <div class="w-12 h-12 bg-brand-gold/5 rounded-xl flex items-center justify-center text-brand-gold border border-brand-gold/10 group-hover:bg-brand-gold/20 group-hover:scale-110 transition-all duration-300">
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-5 hover:border-brand-gold/30 transition-all group cursor-default animate-on-scroll stagger-1"
+                    data-animation="fade-up">
+                    <div
+                        class="w-12 h-12 bg-brand-gold/5 rounded-xl flex items-center justify-center text-brand-gold border border-brand-gold/10 group-hover:bg-brand-gold/20 group-hover:scale-110 transition-all duration-300">
                         <i data-lucide="credit-card" class="w-5 h-5"></i>
                     </div>
-                    <h4 class="text-base font-bold text-white/80 group-hover:text-white transition-colors">Direito do Consumidor</h4>
+                    <h4 class="text-base font-bold text-white/80 group-hover:text-white transition-colors">Direito do
+                        Consumidor</h4>
                 </div>
-                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-5 hover:border-brand-gold/30 transition-all group cursor-default">
-                    <div class="w-12 h-12 bg-brand-gold/5 rounded-xl flex items-center justify-center text-brand-gold border border-brand-gold/10 group-hover:bg-brand-gold/20 group-hover:scale-110 transition-all duration-300">
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-5 hover:border-brand-gold/30 transition-all group cursor-default animate-on-scroll stagger-2"
+                    data-animation="fade-up">
+                    <div
+                        class="w-12 h-12 bg-brand-gold/5 rounded-xl flex items-center justify-center text-brand-gold border border-brand-gold/10 group-hover:bg-brand-gold/20 group-hover:scale-110 transition-all duration-300">
                         <i data-lucide="scale" class="w-5 h-5"></i>
                     </div>
-                    <h4 class="text-base font-bold text-white/80 group-hover:text-white transition-colors">Direito Criminal</h4>
+                    <h4 class="text-base font-bold text-white/80 group-hover:text-white transition-colors">Direito
+                        Criminal</h4>
                 </div>
-                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-5 hover:border-brand-gold/30 transition-all group cursor-default">
-                    <div class="w-12 h-12 bg-brand-gold/5 rounded-xl flex items-center justify-center text-brand-gold border border-brand-gold/10 group-hover:bg-brand-gold/20 group-hover:scale-110 transition-all duration-300">
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-5 hover:border-brand-gold/30 transition-all group cursor-default animate-on-scroll stagger-3"
+                    data-animation="fade-up">
+                    <div
+                        class="w-12 h-12 bg-brand-gold/5 rounded-xl flex items-center justify-center text-brand-gold border border-brand-gold/10 group-hover:bg-brand-gold/20 group-hover:scale-110 transition-all duration-300">
                         <i data-lucide="heart-handshake" class="w-5 h-5"></i>
                     </div>
-                    <h4 class="text-base font-bold text-white/80 group-hover:text-white transition-colors">Direito de Família</h4>
+                    <h4 class="text-base font-bold text-white/80 group-hover:text-white transition-colors">Direito de
+                        Família</h4>
                 </div>
-                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-5 hover:border-brand-gold/30 transition-all group cursor-default">
-                    <div class="w-12 h-12 bg-brand-gold/5 rounded-xl flex items-center justify-center text-brand-gold border border-brand-gold/10 group-hover:bg-brand-gold/20 group-hover:scale-110 transition-all duration-300">
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-5 hover:border-brand-gold/30 transition-all group cursor-default animate-on-scroll stagger-4"
+                    data-animation="fade-up">
+                    <div
+                        class="w-12 h-12 bg-brand-gold/5 rounded-xl flex items-center justify-center text-brand-gold border border-brand-gold/10 group-hover:bg-brand-gold/20 group-hover:scale-110 transition-all duration-300">
                         <i data-lucide="file-text" class="w-5 h-5"></i>
                     </div>
-                    <h4 class="text-base font-bold text-white/80 group-hover:text-white transition-colors">Direito Previdenciário</h4>
+                    <h4 class="text-base font-bold text-white/80 group-hover:text-white transition-colors">Direito
+                        Previdenciário</h4>
                 </div>
-                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-5 hover:border-brand-gold/30 transition-all group cursor-default">
-                    <div class="w-12 h-12 bg-brand-gold/5 rounded-xl flex items-center justify-center text-brand-gold border border-brand-gold/10 group-hover:bg-brand-gold/20 group-hover:scale-110 transition-all duration-300">
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-5 hover:border-brand-gold/30 transition-all group cursor-default animate-on-scroll stagger-5"
+                    data-animation="fade-up">
+                    <div
+                        class="w-12 h-12 bg-brand-gold/5 rounded-xl flex items-center justify-center text-brand-gold border border-brand-gold/10 group-hover:bg-brand-gold/20 group-hover:scale-110 transition-all duration-300">
                         <i data-lucide="gavel" class="w-5 h-5"></i>
                     </div>
-                    <h4 class="text-base font-bold text-white/80 group-hover:text-white transition-colors">Direito do Trabalho</h4>
+                    <h4 class="text-base font-bold text-white/80 group-hover:text-white transition-colors">Direito do
+                        Trabalho</h4>
                 </div>
-                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-5 hover:border-brand-gold/30 transition-all group cursor-default">
-                    <div class="w-12 h-12 bg-brand-gold/5 rounded-xl flex items-center justify-center text-brand-gold border border-brand-gold/10 group-hover:bg-brand-gold/20 group-hover:scale-110 transition-all duration-300">
+                <div class="bg-white/5 border border-white/5 rounded-xl p-5 flex items-center gap-5 hover:border-brand-gold/30 transition-all group cursor-default animate-on-scroll stagger-6"
+                    data-animation="fade-up">
+                    <div
+                        class="w-12 h-12 bg-brand-gold/5 rounded-xl flex items-center justify-center text-brand-gold border border-brand-gold/10 group-hover:bg-brand-gold/20 group-hover:scale-110 transition-all duration-300">
                         <i data-lucide="banknote" class="w-5 h-5"></i>
                     </div>
-                    <h4 class="text-base font-bold text-white/80 group-hover:text-white transition-colors">Cobranças</h4>
+                    <h4 class="text-base font-bold text-white/80 group-hover:text-white transition-colors">Cobranças
+                    </h4>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- SEÇÃO: CTA FINAL -->
-    <section class="py-24 bg-brand-bg-alt border-t border-white/5 text-center relative overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-gold/5 blur-[120px] rounded-full pointer-events-none"></div>
+    <section id="contato" class="py-24 bg-brand-bg-alt border-t border-white/5 text-center relative overflow-hidden">
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-gold/5 blur-[120px] rounded-full pointer-events-none">
+        </div>
         <div class="container mx-auto px-6 lg:px-20 xl:px-32 relative z-10">
-            <div class="w-12 h-1 bg-brand-gold mx-auto mb-8 rounded-full"></div>
-            <h2 class="text-4xl lg:text-6xl font-extrabold mb-6 leading-tight">Pare de ser negado. <br><span class="text-brand-gold">Volte a ter crédito aprovado.</span></h2>
-            <p class="text-white/60 text-lg lg:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">Fale agora com um especialista e descubra como limpar seu nome com segurança.</p>
-            <div class="flex justify-center">
-                <a href="https://wa.me/5592994458086?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20jurídicos." target="_blank" class="bg-brand-gold hover:bg-brand-gold/90 text-black px-10 py-5 rounded-xl font-black text-lg flex items-center gap-3 transition-all hover:scale-[1.05] shadow-[0_10px_40px_rgba(234,179,8,0.3)] uppercase tracking-tight">
+            <div class="w-12 h-1 bg-brand-gold mx-auto mb-8 rounded-full animate-on-scroll" data-animation="fade-up">
+            </div>
+            <h2 class="text-4xl lg:text-6xl font-extrabold mb-6 leading-tight animate-on-scroll stagger-1"
+                data-animation="fade-up">Pare de ser negado. <br><span class="text-brand-gold">Volte a ter crédito
+                    aprovado.</span></h2>
+            <p class="text-white/60 text-lg lg:text-xl mb-10 max-w-2xl mx-auto leading-relaxed animate-on-scroll stagger-2"
+                data-animation="fade-up">Fale agora com um especialista e descubra como limpar seu nome com segurança.
+            </p>
+            <div class="flex justify-center animate-on-scroll stagger-3" data-animation="fade-up">
+                <a href="https://wa.me/5592994458086?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20jurídicos."
+                    target="_blank"
+                    class="bg-brand-gold hover:bg-brand-gold/90 text-black px-10 py-5 rounded-xl font-black text-lg flex items-center gap-3 transition-all hover:scale-[1.05] shadow-[0_10px_40px_rgba(234,179,8,0.3)] uppercase tracking-tight">
                     <i data-lucide="message-circle" class="w-6 h-6"></i>
                     Falar no WhatsApp Agora
                 </a>
             </div>
-            <div class="flex items-center justify-center gap-2 text-white/40 text-sm mt-8 font-medium">
+            <div class="flex items-center justify-center gap-2 text-white/40 text-sm mt-8 font-medium animate-on-scroll stagger-4"
+                data-animation="fade-up">
                 <i data-lucide="lock" class="w-4 h-4"></i>
                 <span>Atendimento sigiloso e 100% seguro.</span>
             </div>
@@ -540,66 +792,124 @@
 
     <!-- RODAPÉ (FOOTER) -->
     <footer class="bg-brand-bg pt-20 pb-32 md:pb-10 border-t border-white/5">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-20">
             <div class="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr_1fr] gap-12 lg:gap-24 mb-16">
                 <!-- Info e Logo -->
                 <div class="space-y-8">
                     <div class="w-full lg:w-48">
-                        <div class="w-full aspect-[3/1] bg-brand-gold/5 border border-brand-gold/10 rounded-lg flex items-center justify-center text-brand-gold/80 font-serif italic text-xl">
+                        <div class="w-full aspect-[3/1] bg-brand-gold/5 border border-brand-gold/10 rounded-lg flex items-center justify-center text-brand-gold/80 font-serif italic text-xl animate-on-scroll"
+                            data-animation="fade-up">
                             <img src="LOGO-AC-8.png" alt="Logo" class="w-auto object-contain">
                         </div>
                     </div>
-                    <p class="text-white/80 text-sm leading-relaxed max-w-sm">Escritório criado com o objetivo de prestar assessoria jurídica, consultiva e estratégica com foco em recuperação de crédito.</p>
-                    <div class="flex gap-4">
-                        <a href="https://www.instagram.com/alexsouzacabral" target="_blank" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-brand-gold hover:border-brand-gold transition-all group">
-                            <i data-lucide="instagram" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
-                        </a>
-                    </div>
+                    <p class="text-white/80 text-sm leading-relaxed max-w-sm animate-on-scroll stagger-1"
+                        data-animation="fade-up">Escritório criado com o objetivo de prestar assessoria jurídica,
+                        consultiva e estratégica com foco em recuperação de crédito.</p>
+                    <!-- DEPOIS (com SVG nativo - funciona em HTML puro) -->
+                    <a href="https://www.instagram.com/dr.alexcabral" target="_blank"
+                        class="w-10 h-10 rounded-full border border-white/70 flex items-center justify-center text-white/70 hover:text-brand-gold hover:border-brand-gold transition-all group">
+                        <svg class="w-5 h-5 group-hover:scale-110 transition-transform fill-none stroke-current stroke-[1.5]"
+                            viewBox="0 0 24 24">
+                            <!-- Câmera/Quadrado arredondado do Instagram -->
+                            <rect x="2" y="2" width="20" height="20" rx="4.5" ry="4.5" />
+                            <!-- Círculo do meio (lente) -->
+                            <circle cx="12" cy="12" r="3.5" />
+                            <!-- Ponto de flash no canto superior direito -->
+                            <circle cx="17.5" cy="6.5" r="1.2" />
+                        </svg>
+                    </a>
                 </div>
                 <!-- Links Úteis -->
                 <div class="grid grid-cols-2 gap-8 lg:contents">
                     <div class="space-y-6">
-                        <h3 class="text-white font-serif font-bold uppercase tracking-widest text-sm">Links</h3>
+                        <h3 class="text-white font-serif font-bold uppercase tracking-widest text-sm animate-on-scroll"
+                            data-animation="fade-up">Links</h3>
                         <ul class="space-y-4">
-                            <li><a href="#" class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors text-sm group"><i data-lucide="scale" class="w-3 h-3 text-brand-gold/70"></i>Home</a></li>
-                            <li><a href="#" class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors text-sm group"><i data-lucide="scale" class="w-3 h-3 text-brand-gold/70"></i>Sobre Nós</a></li>
-                            <li><a href="#" class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors text-sm group"><i data-lucide="scale" class="w-3 h-3 text-brand-gold/70"></i>Áreas de Atuação</a></li>
-                            <li><a href="#" class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors text-sm group"><i data-lucide="scale" class="w-3 h-3 text-brand-gold/70"></i>Contato</a></li>
+                            <li><a href="#inicio"
+                                    class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors text-sm group animate-on-scroll"
+                                    data-animation="fade-up"><i data-lucide="scale"
+                                        class="w-3 h-3 text-brand-gold/70"></i>Home</a></li>
+                            <li><a href="#sobre"
+                                    class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors text-sm group animate-on-scroll stagger-1"
+                                    data-animation="fade-up"><i data-lucide="scale"
+                                        class="w-3 h-3 text-brand-gold/70"></i>Sobre Nós</a></li>
+                            <li><a href="#areas"
+                                    class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors text-sm group animate-on-scroll stagger-2"
+                                    data-animation="fade-up"><i data-lucide="scale"
+                                        class="w-3 h-3 text-brand-gold/70"></i>Áreas de Atuação</a></li>
+                            <li><a href="#contato"
+                                    class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors text-sm group animate-on-scroll stagger-3"
+                                    data-animation="fade-up"><i data-lucide="scale"
+                                        class="w-3 h-3 text-brand-gold/70"></i>Contato</a></li>
                         </ul>
                     </div>
                     <!-- Contato Escritório -->
                     <div class="space-y-6">
-                        <h3 class="text-white font-serif font-bold uppercase tracking-widest text-sm">Escritório</h3>
+                        <h3 class="text-white font-serif font-bold uppercase tracking-widest text-sm animate-on-scroll"
+                            data-animation="fade-up">Escritório AM</h3>
                         <ul class="space-y-4">
-                            <li><a href="https://wa.me/5592994458086?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20jurídicos." class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors text-sm group"><i data-lucide="phone-call" class="w-4 h-4 text-brand-gold/90"></i>(92) 99445-8086</a></li>
-                            <li><a href="mailto:advcabral.asc@gmail.com" class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors text-sm group"><i data-lucide="mail" class="w-4 h-4 text-brand-gold/90"></i>advcabral.asc@gmail.com</a></li>
-                            <li><div class="flex items-center gap-3 text-white/70 text-sm group"><i data-lucide="map-pin" class="w-4 h-4 text-brand-gold/90"></i>Manaus – AM</div></li>
+                            <li><a href="https://wa.me/5592994458086?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20jurídicos."
+                                    class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors text-sm group animate-on-scroll"
+                                    data-animation="fade-up"><i data-lucide="phone-call"
+                                        class="w-4 h-4 text-brand-gold/90"></i>(92) 99445-8086</a></li>
+                            <li><a href="mailto:advcabral.asc@gmail.com"
+                                    class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors text-sm group animate-on-scroll stagger-1"
+                                    data-animation="fade-up"><i data-lucide="mail"
+                                        class="w-4 h-4 text-brand-gold/90"></i>advcabral.asc@gmail.com</a></li>
+                            <li>
+                                <div class="flex items-center gap-3 text-white/70 text-sm group animate-on-scroll stagger-2"
+                                    data-animation="fade-up"><i data-lucide="map-pin"
+                                        class="w-4 h-4 text-brand-gold/90"></i>Manaus – AM</div>
+                            </li>
+                        </ul>
+                        <h3 class="pt-4 text-white font-serif font-bold uppercase tracking-widest text-sm animate-on-scroll"
+                            data-animation="fade-up">Escritório RS</h3>
+                        <ul class="space-y-4">
+                            <li><a href="https://wa.me/5554999046458?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20jurídicos."
+                                    class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors text-sm group animate-on-scroll"
+                                    data-animation="fade-up"><i data-lucide="phone-call"
+                                        class="w-4 h-4 text-brand-gold/90"></i>(54) 99904-6458</a></li>
+                            
+                                <div class="flex items-center gap-3 text-white/70 text-sm group animate-on-scroll stagger-2"
+                                    data-animation="fade-up"><i data-lucide="map-pin"
+                                        class="w-4 h-4 text-brand-gold/90"></i>Rio Grande do Sul</div>
+                            </li>
                         </ul>
                     </div>
+                    
                 </div>
             </div>
             <div class="pt-8 border-t border-white/5 text-center">
-                <p class="text-white/50 text-[10px] md:text-xs uppercase tracking-widest font-medium">© 2026 Alex Souza Cabral – Assessoria e Consultoria Jurídica. Todos os direitos reservados.</p>
+                <p class="text-white/50 text-[10px] md:text-xs tracking-widest font-medium animate-on-scroll"
+                    data-animation="fade-up">© 2026 Alex Souza Cabral – Assessoria e Consultoria Jurídica. Todos os
+                    direitos reservados.</p>
             </div>
         </div>
     </footer>
 
     <!-- BOTÃO WHATSAPP FLUTUANTE (MOBILE) -->
     <div class="fixed bottom-0 left-0 right-0 z-[60] p-4 md:hidden">
-        <a href="https://wa.me/5592994458086?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20jurídicos." class="bg-brand-gold text-black w-full py-4 rounded-xl font-black text-base flex items-center justify-center gap-3 shadow-[0_-5px_30px_rgba(234,179,8,0.3)] active:scale-95 transition-transform uppercase">
+        <a href="https://wa.me/5592994458086?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20jurídicos."
+            class="bg-brand-gold text-black w-full py-4 rounded-xl font-black text-base flex items-center justify-center gap-3 shadow-[0_-5px_30px_rgba(234,179,8,0.3)] active:scale-95 transition-transform uppercase animate-on-scroll"
+            data-animation="fade-up">
             <i data-lucide="message-circle" class="w-5 h-5"></i>
             Limpar meu nome agora
         </a>
     </div>
 
     <!-- BOTÃO WHATSAPP FLUTUANTE (DESKTOP) -->
-    <a href="https://wa.me/5592994458086?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20jurídicos." target="_blank" rel="noopener noreferrer" class="hidden md:flex fixed bottom-8 right-8 z-50 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform items-center justify-center group">
+    <a href="https://wa.me/5592994458086?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20jurídicos."
+        target="_blank" rel="noopener noreferrer"
+        class="hidden md:flex fixed bottom-8 right-8 z-50 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform items-center justify-center group animate-on-scroll"
+        data-animation="scale">
         <i data-lucide="phone-call" class="w-8 h-8"></i>
-        <span class="absolute right-full mr-4 bg-white text-slate-800 px-4 py-2 rounded-lg shadow-xl font-bold text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">Fale Conosco</span>
+        <span
+            class="absolute right-full mr-4 bg-white text-slate-800 px-4 py-2 rounded-lg shadow-xl font-bold text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">Fale
+            Conosco</span>
     </a>
 
     <!-- SCRIPTS -->
-    
+
     <!-- Lucide Icons: Biblioteca de ícones leve e moderna -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
@@ -607,5 +917,168 @@
         lucide.createIcons();
     </script>
 
+    <!-- SCRIPT DE ANIMAÇÃO DO NÚMERO 780 -->
+    <!-- SCRIPT DE ANIMAÇÃO DO NÚMERO 780 COM BARRA CRESCENDO LINEARMENTE -->
+    <script>
+        // Animação de contagem do número 780 com mudança de cores e barra crescendo
+        function animateCounter(element, start, end, duration) {
+            let startTime = null;
+
+            const animation = (currentTime) => {
+                if (startTime === null) startTime = currentTime;
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                const value = Math.floor(start + (end - start) * progress);
+                element.textContent = value;
+
+                // Muda a cor conforme o progresso
+                let color;
+                if (progress < 0.25) {
+                    // 0-25%: Vermelho para Laranja
+                    const localProgress = progress / 0.25;
+                    const r = 255;
+                    const g = Math.floor(165 * localProgress);
+                    const b = 0;
+                    color = `rgb(${r}, ${g}, ${b})`;
+                } else if (progress < 0.5) {
+                    // 25-50%: Laranja para Amarelo
+                    const localProgress = (progress - 0.25) / 0.25;
+                    const r = 255;
+                    const g = Math.floor(165 + (255 - 165) * localProgress);
+                    const b = 0;
+                    color = `rgb(${r}, ${g}, ${b})`;
+                } else if (progress < 0.75) {
+                    // 50-75%: Amarelo para Amarelo-Verde
+                    const localProgress = (progress - 0.5) / 0.25;
+                    const r = Math.floor(255 - (255 - 173) * localProgress);
+                    const g = 255;
+                    const b = 0;
+                    color = `rgb(${r}, ${g}, ${b})`;
+                } else {
+                    // 75-100%: Amarelo-Verde para Verde
+                    const localProgress = (progress - 0.75) / 0.25;
+                    const r = Math.floor(173 - (173 - 34) * localProgress);
+                    const g = 255;
+                    const b = Math.floor(94 * localProgress);
+                    color = `rgb(${r}, ${g}, ${b})`;
+                }
+
+                // Aplica a cor no número
+                element.style.color = color;
+
+                // Aplica a cor e o crescimento na barra de progresso
+                const progressBar = document.querySelector('.progress-bar');
+                if (progressBar) {
+                    // Calcula a largura baseada no progresso (começa em 0%, vai até 85%)
+                    const barWidth = progress * 85;
+                    progressBar.style.width = barWidth + '%';
+                    progressBar.style.backgroundColor = color;
+                    progressBar.style.boxShadow = `0 0 15px ${color}`;
+                    // Remove transition para animação suave
+                    progressBar.style.transition = 'none';
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(animation);
+                }
+            };
+
+            requestAnimationFrame(animation);
+        }
+
+        // Intersection Observer para disparar animação ao scroll
+        const observerScore = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+
+                    // Reset da barra (começa em 0%)
+                    const progressBar = document.querySelector('.progress-bar');
+                    if (progressBar) {
+                        progressBar.style.width = '0%';
+                    }
+
+                    // Adiciona classe de animação
+                    element.classList.add('animated');
+
+                    // Inicia contagem de 300 a 780 em 2.5 segundos
+                    animateCounter(element, 300, 780, 2500);
+
+                    // Desconecta observer para não repetir
+                    observerScore.unobserve(element);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        // Observa o elemento
+        const scoreElement = document.getElementById('scoreNumber');
+        if (scoreElement) {
+            observerScore.observe(scoreElement);
+        }
+    </script>
+    <!-- SCRIPT DE ANIMAÇÕES AO SCROLL -->
+
+    <!-- SCRIPT 2: ANIMAÇÃO DO NÚMERO +360 PONTOS -->
+    <script>
+        function animatePointsCounter(element, start, end, duration) {
+            let startTime = null;
+
+            const animation = (currentTime) => {
+                if (startTime === null) startTime = currentTime;
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                const value = Math.floor(start + (end - start) * progress);
+                element.textContent = '+' + value + ' pontos';
+
+                if (progress < 1) {
+                    requestAnimationFrame(animation);
+                }
+            };
+
+            requestAnimationFrame(animation);
+        }
+
+        const observerPoints = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    animatePointsCounter(element, 0, 360, 2500);
+                    observerPoints.unobserve(element);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const pointsElement = document.getElementById('pointsNumber');
+        if (pointsElement) {
+            observerPoints.observe(pointsElement);
+        }
+    </script>
+    <script>
+
+        // Intersection Observer para disparar animações ao scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const animationType = entry.target.dataset.animation;
+                    entry.target.classList.add('visible-' + animationType);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observa todos os elementos com classe animate-on-scroll
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+
 </body>
+
 </html>
